@@ -1,1 +1,1 @@
-gcc main.c cf_runtime.c cf_runtime.h cf_int64.c cf_int64.h cf_type.h cf_int32.h cf_int32.c
+gcc *.c *.h
