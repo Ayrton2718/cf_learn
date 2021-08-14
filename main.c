@@ -1,14 +1,20 @@
 #include "cf_int64.h"
-
+#include "cf_int32.h"
 
 int main(void)
 {
-    CFObj_t value1 = CFInt64_alloc(100);
-    CFRuntime_retain(value1);
+    CFObj_t value1 = CFInt64_alloc(100);    // オブジェクトの生成
+    CFRuntime_retain(value1);   // 参照カウンターのカウントアップ
 
-    printf("%lld\n", CFInt64_get(value1));
+    CFObj_t value2 = CFInt32_alloc(100);    // オブジェクトの生成
+    CFRuntime_retain(value2);   // 参照カウンターのカウントアップ
 
-    CFRuntime_release(value1);
+
+    printf("%lld\n", CFInt64_get(value1));  // 値を表示
+    printf("%d\n", CFInt32_get(value2));  // 値を表示
+
+    CFRuntime_release(value1);  // 参照カウンターのカウントダウン。参照している人が0人になったので、メモリを解放する。
+    CFRuntime_release(value2);   // 参照カウンターのカウントアップ
     return 0;
 }
 
